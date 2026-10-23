@@ -1,0 +1,22 @@
+{
+  "repo": "huret-label-free-audit",
+  "recovery": "CP03R1",
+  "tests_executed": 1,
+  "passed": true,
+  "scope": "Recovered October script and fifteen original weight files. Current check verifies archive shapes/finiteness; loader parity is in the paired HF directory. Training was not repeated in CP03R1.",
+  "commands": [
+    {
+      "command": [
+        "python",
+        "check_weights.py"
+      ],
+      "exit_code": 0,
+      "seconds": 0.722,
+      "stdout": "PASS 15\n",
+      "stderr": ""
+    }
+  ],
+  "generated_result_hashes": {
+    "replay_result.json": "4c743a7543da6657ec56eaee6fcbaa74399257aa15856d227fe15d41aa598666"
+  }
+}

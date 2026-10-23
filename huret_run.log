@@ -1,0 +1,40 @@
+seed 0 complete 2.39
+seed 1 complete 4.28
+seed 2 complete 6.05
+seed 3 complete 7.69
+seed 4 complete 9.06
+{
+  "means": {
+    "nuisance": {
+      "auc": 0.8293912162442718,
+      "log_loss": 0.47967116772764423
+    },
+    "confidence": {
+      "auc": 0.8594608967616384,
+      "log_loss": 0.4444147155491002
+    },
+    "label_free_geometry": {
+      "auc": 0.8535444324141956,
+      "log_loss": 0.4454728406026606
+    },
+    "confidence_plus_geometry": {
+      "auc": 0.863207908084837,
+      "log_loss": 0.43497781906544863
+    },
+    "oracle_true_label_margin": {
+      "auc": 0.9770160162976935,
+      "log_loss": 0.18355203630170447
+    }
+  },
+  "primary": {
+    "mean_logloss_improvement": 0.0094368964836515,
+    "ci95": [
+      0.004958829790301753,
+      0.01388815088858136
+    ],
+    "resamples": 2000,
+    "unit": "original test image; seeds averaged first",
+    "limitation": "conditional on these trained models and OOF predictions; not full refit or population inference"
+  },
+  "reload": true
+}

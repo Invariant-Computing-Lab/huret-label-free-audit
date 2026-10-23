@@ -1,0 +1,629 @@
+{
+  "protocol": {
+    "kind": "independent_source_method_reimplementation",
+    "date": "2026-10-12",
+    "master_seed": 20260715,
+    "network": "64-32-16-head; ReLU; AdamW lr0.002 wd0.0001",
+    "max_epochs": 140,
+    "batch_size": 128,
+    "patience": 10,
+    "validation_fraction_of_training": 0.18,
+    "test_fraction": 0.3,
+    "seeds": [
+      0,
+      1,
+      2,
+      3,
+      4
+    ],
+    "noise_levels": [
+      0,
+      0.18,
+      0.35,
+      0.55,
+      0.75
+    ],
+    "meta_folds": 5,
+    "meta_group_unit": "original held-out image",
+    "models": [
+      "nuisance",
+      "confidence",
+      "label_free_geometry",
+      "confidence_plus_geometry",
+      "oracle_true_label_margin"
+    ],
+    "primary_comparison": "confidence_plus_geometry versus confidence; report AUC AND log loss; no selection across seeds",
+    "interpretation": "Algorithmic stability only. No biology. Original July source/weights not available; new results do not silently overwrite them.",
+    "centroids": "Fit-partition activations only; no validation or test labels used to fit centroids",
+    "protocol_lock": "local pre-run file, not externally preregistered or timestamp-certified"
+  },
+  "environment": {
+    "python": "3.13.5 (main, Jul 15 2026, 20:25:40) [GCC 14.2.0]",
+    "numpy": "2.3.5",
+    "torch": "2.10.0+cpu",
+    "platform": "Linux-6.18.44-x86_64-with-glibc2.41"
+  },
+  "training": [
+    {
+      "task": "identity",
+      "seed": 0,
+      "accuracy": 0.9518518518518518,
+      "epochs": 122,
+      "validation_loss": 0.06040774658322334
+    },
+    {
+      "task": "parity",
+      "seed": 0,
+      "accuracy": 0.9796296296296296,
+      "epochs": 93,
+      "validation_loss": 0.017613548785448074
+    },
+    {
+      "task": "magnitude",
+      "seed": 0,
+      "accuracy": 0.9740740740740741,
+      "epochs": 65,
+      "validation_loss": 0.05814377963542938
+    },
+    {
+      "task": "identity",
+      "seed": 1,
+      "accuracy": 0.9574074074074074,
+      "epochs": 101,
+      "validation_loss": 0.06847063452005386
+    },
+    {
+      "task": "parity",
+      "seed": 1,
+      "accuracy": 0.9703703703703703,
+      "epochs": 93,
+      "validation_loss": 0.014518320560455322
+    },
+    {
+      "task": "magnitude",
+      "seed": 1,
+      "accuracy": 0.975925925925926,
+      "epochs": 116,
+      "validation_loss": 0.05002709850668907
+    },
+    {
+      "task": "identity",
+      "seed": 2,
+      "accuracy": 0.95,
+      "epochs": 140,
+      "validation_loss": 0.04047072306275368
+    },
+    {
+      "task": "parity",
+      "seed": 2,
+      "accuracy": 0.9648148148148148,
+      "epochs": 64,
+      "validation_loss": 0.033059801906347275
+    },
+    {
+      "task": "magnitude",
+      "seed": 2,
+      "accuracy": 0.9796296296296296,
+      "epochs": 89,
+      "validation_loss": 0.029922081157565117
+    },
+    {
+      "task": "identity",
+      "seed": 3,
+      "accuracy": 0.9407407407407408,
+      "epochs": 110,
+      "validation_loss": 0.06436464190483093
+    },
+    {
+      "task": "parity",
+      "seed": 3,
+      "accuracy": 0.9833333333333333,
+      "epochs": 87,
+      "validation_loss": 0.020234419032931328
+    },
+    {
+      "task": "magnitude",
+      "seed": 3,
+      "accuracy": 0.9814814814814815,
+      "epochs": 65,
+      "validation_loss": 0.03787684068083763
+    },
+    {
+      "task": "identity",
+      "seed": 4,
+      "accuracy": 0.9481481481481482,
+      "epochs": 90,
+      "validation_loss": 0.06405777484178543
+    },
+    {
+      "task": "parity",
+      "seed": 4,
+      "accuracy": 0.9685185185185186,
+      "epochs": 64,
+      "validation_loss": 0.028156327083706856
+    },
+    {
+      "task": "magnitude",
+      "seed": 4,
+      "accuracy": 0.9740740740740741,
+      "epochs": 68,
+      "validation_loss": 0.0380750447511673
+    }
+  ],
+  "meta_prediction": [
+    {
+      "seed": 0,
+      "model": "nuisance",
+      "auc": 0.824496892040204,
+      "log_loss": 0.47876028333667126,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 0,
+      "model": "confidence",
+      "auc": 0.8577120510552694,
+      "log_loss": 0.4411190821980366,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 0,
+      "model": "label_free_geometry",
+      "auc": 0.8486198131507949,
+      "log_loss": 0.4464307743035812,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 0,
+      "model": "confidence_plus_geometry",
+      "auc": 0.860195693698113,
+      "log_loss": 0.43460265022995936,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 0,
+      "model": "oracle_true_label_margin",
+      "auc": 0.9714746519803489,
+      "log_loss": 0.20245331966942115,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": false
+    },
+    {
+      "seed": 1,
+      "model": "nuisance",
+      "auc": 0.8258340671551032,
+      "log_loss": 0.48593639587186244,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 1,
+      "model": "confidence",
+      "auc": 0.8586927852896851,
+      "log_loss": 0.4483615051250346,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 1,
+      "model": "label_free_geometry",
+      "auc": 0.8599167939663857,
+      "log_loss": 0.43788838797621454,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 1,
+      "model": "confidence_plus_geometry",
+      "auc": 0.8664496686787164,
+      "log_loss": 0.43204434415709453,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 1,
+      "model": "oracle_true_label_margin",
+      "auc": 0.9786709848984609,
+      "log_loss": 0.17810258525252845,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": false
+    },
+    {
+      "seed": 2,
+      "model": "nuisance",
+      "auc": 0.8306701631281803,
+      "log_loss": 0.48096226416582155,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 2,
+      "model": "confidence",
+      "auc": 0.8619101822434507,
+      "log_loss": 0.44468096270926993,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 2,
+      "model": "label_free_geometry",
+      "auc": 0.8569560612937388,
+      "log_loss": 0.4436116704502474,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 2,
+      "model": "confidence_plus_geometry",
+      "auc": 0.8664080341769508,
+      "log_loss": 0.43316839883608654,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 2,
+      "model": "oracle_true_label_margin",
+      "auc": 0.9755049577230736,
+      "log_loss": 0.19101908045293478,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": false
+    },
+    {
+      "seed": 3,
+      "model": "nuisance",
+      "auc": 0.82898638018773,
+      "log_loss": 0.4797802932113827,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 3,
+      "model": "confidence",
+      "auc": 0.8508226473475945,
+      "log_loss": 0.45435826562073056,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 3,
+      "model": "label_free_geometry",
+      "auc": 0.8391573701272483,
+      "log_loss": 0.4632789039563593,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 3,
+      "model": "confidence_plus_geometry",
+      "auc": 0.8526363150062024,
+      "log_loss": 0.4486487441539138,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 3,
+      "model": "oracle_true_label_margin",
+      "auc": 0.9789184663184246,
+      "log_loss": 0.17509747878834087,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": false
+    },
+    {
+      "seed": 4,
+      "model": "nuisance",
+      "auc": 0.8369685787101417,
+      "log_loss": 0.47291660205248315,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 4,
+      "model": "confidence",
+      "auc": 0.8681668178721926,
+      "log_loss": 0.43355376209242946,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 4,
+      "model": "label_free_geometry",
+      "auc": 0.8630721235328103,
+      "log_loss": 0.4361544663269009,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 4,
+      "model": "confidence_plus_geometry",
+      "auc": 0.8703498288642031,
+      "log_loss": 0.4264249579501893,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": true
+    },
+    {
+      "seed": 4,
+      "model": "oracle_true_label_margin",
+      "auc": 0.9805110205681601,
+      "log_loss": 0.1710877173452972,
+      "n_original_images": 540,
+      "n_variants": 2700,
+      "fold_disjoint": true,
+      "inference_eligible": false
+    }
+  ],
+  "cross_task_cka": [
+    {
+      "seed": 0,
+      "task_a": "identity",
+      "task_b": "parity",
+      "linear_cka": 0.4628119468688965
+    },
+    {
+      "seed": 0,
+      "task_a": "identity",
+      "task_b": "magnitude",
+      "linear_cka": 0.11150588095188141
+    },
+    {
+      "seed": 0,
+      "task_a": "parity",
+      "task_b": "magnitude",
+      "linear_cka": 0.060510165989398956
+    },
+    {
+      "seed": 1,
+      "task_a": "identity",
+      "task_b": "parity",
+      "linear_cka": 0.37475988268852234
+    },
+    {
+      "seed": 1,
+      "task_a": "identity",
+      "task_b": "magnitude",
+      "linear_cka": 0.1465338170528412
+    },
+    {
+      "seed": 1,
+      "task_a": "parity",
+      "task_b": "magnitude",
+      "linear_cka": 0.06129301339387894
+    },
+    {
+      "seed": 2,
+      "task_a": "identity",
+      "task_b": "parity",
+      "linear_cka": 0.37834346294403076
+    },
+    {
+      "seed": 2,
+      "task_a": "identity",
+      "task_b": "magnitude",
+      "linear_cka": 0.07152200490236282
+    },
+    {
+      "seed": 2,
+      "task_a": "parity",
+      "task_b": "magnitude",
+      "linear_cka": 0.04379727691411972
+    },
+    {
+      "seed": 3,
+      "task_a": "identity",
+      "task_b": "parity",
+      "linear_cka": 0.46371614933013916
+    },
+    {
+      "seed": 3,
+      "task_a": "identity",
+      "task_b": "magnitude",
+      "linear_cka": 0.09003110975027084
+    },
+    {
+      "seed": 3,
+      "task_a": "parity",
+      "task_b": "magnitude",
+      "linear_cka": 0.049604907631874084
+    },
+    {
+      "seed": 4,
+      "task_a": "identity",
+      "task_b": "parity",
+      "linear_cka": 0.41184210777282715
+    },
+    {
+      "seed": 4,
+      "task_a": "identity",
+      "task_b": "magnitude",
+      "linear_cka": 0.08930275589227676
+    },
+    {
+      "seed": 4,
+      "task_a": "parity",
+      "task_b": "magnitude",
+      "linear_cka": 0.08265360444784164
+    }
+  ],
+  "weights_reload_checks": [
+    {
+      "task": "identity",
+      "seed": 0,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "parity",
+      "seed": 0,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "magnitude",
+      "seed": 0,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "identity",
+      "seed": 1,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "parity",
+      "seed": 1,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "magnitude",
+      "seed": 1,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "identity",
+      "seed": 2,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "parity",
+      "seed": 2,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "magnitude",
+      "seed": 2,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "identity",
+      "seed": 3,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "parity",
+      "seed": 3,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "magnitude",
+      "seed": 3,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "identity",
+      "seed": 4,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "parity",
+      "seed": 4,
+      "exact": true,
+      "max_abs_error": 0.0
+    },
+    {
+      "task": "magnitude",
+      "seed": 4,
+      "exact": true,
+      "max_abs_error": 0.0
+    }
+  ],
+  "split_sizes": {
+    "fit": 1030,
+    "validation": 227,
+    "test": 540
+  },
+  "elapsed_seconds": 9.058727264404297,
+  "all_weights_reload_exact": true,
+  "source_script_sha256": "fbbf2ce8f64b6d5151fb4e28f7b26bf169054df56313122e3356b17934465a4c",
+  "model_means": {
+    "nuisance": {
+      "auc": 0.8293912162442718,
+      "log_loss": 0.47967116772764423
+    },
+    "confidence": {
+      "auc": 0.8594608967616384,
+      "log_loss": 0.4444147155491002
+    },
+    "label_free_geometry": {
+      "auc": 0.8535444324141956,
+      "log_loss": 0.4454728406026606
+    },
+    "confidence_plus_geometry": {
+      "auc": 0.863207908084837,
+      "log_loss": 0.43497781906544863
+    },
+    "oracle_true_label_margin": {
+      "auc": 0.9770160162976935,
+      "log_loss": 0.18355203630170447
+    }
+  },
+  "primary_image_bootstrap": {
+    "mean_logloss_improvement": 0.0094368964836515,
+    "ci95": [
+      0.004958829790301753,
+      0.01388815088858136
+    ],
+    "resamples": 2000,
+    "unit": "original test image; seeds averaged first",
+    "limitation": "conditional on these trained models and OOF predictions; not full refit or population inference"
+  }
+}

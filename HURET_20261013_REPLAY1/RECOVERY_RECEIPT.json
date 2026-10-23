@@ -1,0 +1,29 @@
+{
+  "schema": "invariant.recovery.receipt.v1",
+  "run_id": "HURET_20261013_REPLAY1",
+  "executed_at_utc": "2026-10-13T09:28:38.226022+00:00",
+  "protocol_date_retained": "2026-10-12",
+  "script_recovered_from": "previous executed tool payload",
+  "script_sha256": "fbbf2ce8f64b6d5151fb4e28f7b26bf169054df56313122e3356b17934465a4c",
+  "expected_cp01_script_sha256": "fbbf2ce8f64b6d5151fb4e28f7b26bf169054df56313122e3356b17934465a4c",
+  "exact_summary_parity": {
+    "confidence": {
+      "auc": true,
+      "log_loss": true
+    },
+    "confidence_plus_geometry": {
+      "auc": true,
+      "log_loss": true
+    },
+    "label_free_geometry": {
+      "auc": true,
+      "log_loss": true
+    }
+  },
+  "bootstrap_parity": true,
+  "weight_reload_exact_count": 15,
+  "not_independent_replication": true,
+  "original_july_code_recovered": false,
+  "clinical_validation": false,
+  "notes": "Byte-identical CP01 script recovered and executed anew on 13 October. Historical protocol date retained deliberately; this receipt records the new execution. Repeated numerical results are NOT an additional independent sample."
+}

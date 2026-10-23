@@ -1,0 +1,38 @@
+{
+  "kind": "independent_source_method_reimplementation",
+  "date": "2026-10-12",
+  "master_seed": 20260715,
+  "network": "64-32-16-head; ReLU; AdamW lr0.002 wd0.0001",
+  "max_epochs": 140,
+  "batch_size": 128,
+  "patience": 10,
+  "validation_fraction_of_training": 0.18,
+  "test_fraction": 0.3,
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4
+  ],
+  "noise_levels": [
+    0,
+    0.18,
+    0.35,
+    0.55,
+    0.75
+  ],
+  "meta_folds": 5,
+  "meta_group_unit": "original held-out image",
+  "models": [
+    "nuisance",
+    "confidence",
+    "label_free_geometry",
+    "confidence_plus_geometry",
+    "oracle_true_label_margin"
+  ],
+  "primary_comparison": "confidence_plus_geometry versus confidence; report AUC AND log loss; no selection across seeds",
+  "interpretation": "Algorithmic stability only. No biology. Original July source/weights not available; new results do not silently overwrite them.",
+  "centroids": "Fit-partition activations only; no validation or test labels used to fit centroids",
+  "protocol_lock": "local pre-run file, not externally preregistered or timestamp-certified"
+}
